@@ -21,7 +21,7 @@ HELP = '''"whois [group]" lists users of a group.
 Pings can optionally be followed by a colon and a message.'''
 
 WHOIS = re.compile(r'who(?:is|are) (\w+)$')
-ANYPING = re.compile(r'(?:any )?(\w+)(?:\s*:\s*(.+))?$')
+ANYPING = re.compile(r'any (\w+)(?:\s*:\s*(.+))?$')
 HEREPING = re.compile(r'(\w+) here(?:\s*:\s*(.+))?$')
 ALLPING = re.compile(r'all (\w+)(?:\s*:\s*(.+))?$')
 
