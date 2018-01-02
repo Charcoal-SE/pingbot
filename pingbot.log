@@ -1,0 +1,30 @@
+2018-01-02 02:05:02,277 [pingbot.moderators:INFO] Loaded moderator info file
+2018-01-02 02:05:02,328 [ChatExchange.chatexchange.client.Client:INFO] Logging in.
+2018-01-02 02:05:04,539 [ChatExchange.chatexchange.client.Client:INFO] Logged in.
+2018-01-02 02:05:04,551 [ChatExchange.chatexchange.client.Client:INFO] Worker thread reporting for duty.
+2018-01-02 02:05:08,088 [pingbot.chat.stackexchange:INFO] Joined room 11540
+2018-01-02 02:05:08,089 [ChatExchange.chatexchange.rooms.Room:INFO] Queued message '[auto] Ping bot is now active' for room_id #'11540'.
+2018-01-02 02:05:08,089 [ChatExchange.chatexchange.client.Client:INFO] Now serving customer 1, ('send', '11540', '[auto] Ping bot is now active')
+2018-01-02 02:05:08,089 [ChatExchange.chatexchange.rooms.Room:INFO] Queue length: 0.
+2018-01-02 02:06:22,872 [ChatExchange.chatexchange.rooms.Room:INFO] Queued message ':42039397 [auto] I know of 1 other members of admins.stackexchange.com. Recently active: Undo. Not recently active:  .' for room_id #11540.
+2018-01-02 02:06:22,873 [ChatExchange.chatexchange.client.Client:INFO] Now serving customer 2, ('send', 11540, ':42039397 [auto] I know of 1 other members of admins.stackexchange.com. Recently active: Undo. Not recently active:  .')
+2018-01-02 02:06:22,873 [ChatExchange.chatexchange.rooms.Room:INFO] Queue length: 0.
+2018-01-02 02:06:46,640 [ChatExchange.chatexchange.rooms.Room:INFO] Queued message ':42039404 [auto] %Undo: this is a message' for room_id #11540.
+2018-01-02 02:06:46,641 [ChatExchange.chatexchange.client.Client:INFO] Now serving customer 3, ('send', 11540, ':42039404 [auto] %Undo: this is a message')
+2018-01-02 02:06:46,641 [ChatExchange.chatexchange.rooms.Room:INFO] Queue length: 0.
+2018-01-02 02:07:10,394 [ChatExchange.chatexchange.rooms.Room:INFO] Queued message ':42039406 [auto] %Undo: message' for room_id #11540.
+2018-01-02 02:07:10,395 [ChatExchange.chatexchange.client.Client:INFO] Now serving customer 4, ('send', 11540, ':42039406 [auto] %Undo: message')
+2018-01-02 02:07:10,395 [ChatExchange.chatexchange.rooms.Room:INFO] Queue length: 0.
+2018-01-02 02:07:20,840 [ChatExchange.chatexchange.rooms.Room:INFO] Queued message ':42039410 [auto] %Undo: message' for room_id #11540.
+2018-01-02 02:07:20,841 [ChatExchange.chatexchange.client.Client:INFO] Now serving customer 5, ('send', 11540, ':42039410 [auto] %Undo: message')
+2018-01-02 02:07:20,841 [ChatExchange.chatexchange.rooms.Room:INFO] Queue length: 0.
+2018-01-02 02:07:52,825 [ChatExchange.chatexchange.rooms.Room:INFO] Queued message ':42039417 [auto]\n"whois [group]" lists users of a group.\n"any [group]: [message]" pings a single member of the group, one who is in the room if possible.\n"[group]: [message]" pings all members of the group currently in the room, or if none are present, does nothing.\n"all [group]: [message]" pings all members of the group, period.\n"groups" gives a list of pingable sites (not including some aliases which are also recognized).\nPings can optionally be followed by a colon and a message.' for room_id #11540.
+2018-01-02 02:07:52,826 [ChatExchange.chatexchange.rooms.Room:INFO] Queue length: 1.
+2018-01-02 02:07:52,826 [ChatExchange.chatexchange.client.Client:INFO] Now serving customer 6, ('send', 11540, ':42039417 [auto]\n"whois [group]" lists users of a group.\n"any [group]: [message]" pings a single member of the group, one who is in the room if possible.\n"[group]: [message]" pings all members of the group currently in the room, or if none are present, does nothing.\n"all [group]: [message]" pings all members of the group, period.\n"groups" gives a list of pingable sites (not including some aliases which are also recognized).\nPings can optionally be followed by a colon and a message.')
+2018-01-02 02:12:13,300 [pingbot:INFO] Terminating due to KeyboardInterrupt
+2018-01-02 02:12:13,301 [ChatExchange.chatexchange.rooms.Room:INFO] Queued message '[auto] Ping bot is leaving' for room_id #'11540'.
+2018-01-02 02:12:13,301 [ChatExchange.chatexchange.client.Client:INFO] Now serving customer 7, ('send', '11540', '[auto] Ping bot is leaving')
+2018-01-02 02:12:13,302 [ChatExchange.chatexchange.rooms.Room:INFO] Queue length: 0.
+2018-01-02 02:12:13,804 [pingbot.chat.stackexchange:INFO] Not leaving room 11540
+2018-01-02 02:12:13,804 [ChatExchange.chatexchange.client.Client:INFO] Logged out.
+2018-01-02 02:12:13,805 [root:INFO] Function ran for 0.734375 seconds

@@ -13,17 +13,17 @@ from pingbot.sites import canonical_site_id, site_name as get_site_name
 
 logger = logging.getLogger('pingbot')
 
-HELP = '''"whois [sitename] mods" works as in TL.
-"[sitename] mod" or "any [sitename] mod" pings a single mod of the site, one who is in the room if possible.
-"[sitename] mods" pings all mods of the site currently in the room, or if none are present, does nothing.
-"all [sitename] mods" pings all mods of the site, period.
-"sites" gives a list of pingable sites (not including some aliases which are also recognized).
+HELP = '''"whois [group]" lists users of a group.
+"any [group]: [message]" pings a single member of the group, one who is in the room if possible.
+"[group]: [message]" pings all members of the group currently in the room, or if none are present, does nothing.
+"all [group]: [message]" pings all members of the group, period.
+"groups" gives a list of pingable sites (not including some aliases which are also recognized).
 Pings can optionally be followed by a colon and a message.'''
 
-WHOIS = re.compile(r'who(?:is|are) (\w+) mods$')
-ANYPING = re.compile(r'(?:any )?(\w+) mod(?:\s*:\s*(.+))?$')
-HEREPING = re.compile(r'(\w+) mods(?:\s*:\s*(.+))?$')
-ALLPING = re.compile(r'all (\w+) mods(?:\s*:\s*(.+))?$')
+WHOIS = re.compile(r'who(?:is|are) (\w+)$')
+ANYPING = re.compile(r'(?:any )?(\w+)(?:\s*:\s*(.+))?$')
+HEREPING = re.compile(r'(\w+)(?:\s*:\s*(.+))?$')
+ALLPING = re.compile(r'all (\w+)(?:\s*:\s*(.+))?$')
 
 class UnknownSiteException(Exception):
     def __init__(self, site_id):
@@ -39,8 +39,8 @@ class NoOtherModeratorsException(Exception):
         self.poster_id = poster_id
 
 class Dispatcher(object):
-    NO_INFO = 'No moderator info for site {}.'
-    NO_OTHERS = 'No other moderators for site {}.'
+    NO_INFO = 'No member info for group {}.'
+    NO_OTHERS = 'No other members in group {}.'
 
     def __init__(self, room, tl=None):
         '''Constructs a message dispatcher.
@@ -136,7 +136,7 @@ class Dispatcher(object):
 
     def sites(self):
         '''Gives a list of sites.'''
-        return 'Known sites: ' + ', '.join(moderators.keys())
+        return 'Known groups: ' + ', '.join(moderators.keys())
 
     def whois(self, site_id, poster_id):
         '''Gives a list of mods of the given site.'''
@@ -185,7 +185,7 @@ class Dispatcher(object):
         )
 
         if present or recent:
-            info_string = 'I know of {} moderators on {}.'.format(count_format, site_name)
+            info_string = 'I know of {} members of {}.'.format(count_format, site_name)
             if present and recent:
                 absent_mod_leadin = 'Others:'
                 return ' '.join([info_string, present_string, recent_string, absent_mod_leadin, absent_mod_list, '.'])
@@ -196,7 +196,7 @@ class Dispatcher(object):
                 absent_mod_leadin = 'Not recently active:'
                 return ' '.join([info_string, recent_string, absent_mod_leadin, absent_mod_list, '.'])
         else:
-            return 'I know of {} moderators on {}: {}. None are recently active.'.format(
+            return 'I know of {} members of {}: {}. None are recently active.'.format(
                 count_format,
                 site_name,
                 absent_mod_list
@@ -244,7 +244,7 @@ class Dispatcher(object):
         if message:
             return '{}: {}'.format(mod_ping, message)
         else:
-            return 'Pinging one moderator: {}'.format(mod_ping)
+            return 'Pinging one member: {}'.format(mod_ping)
 
     def ping_present(self, site_id, poster_id, message=None):
         '''Sends a ping to all currently present mods from the chosen site.'''
@@ -266,9 +266,9 @@ class Dispatcher(object):
             if message:
                 return '{}: {}'.format(mod_pings, message)
             else:
-                return 'Pinging {} moderator{}: {}'.format(len(present), 's' if len(present) != 1 else '', mod_pings)
+                return 'Pinging {} member{}: {}'.format(len(present), 's' if len(present) != 1 else '', mod_pings)
         else:
-            return ('No other' if excluding_poster else 'No') + ' moderators of {} are currently in this room. Use `{} mod` to ping one.'.format(site_name, site_id)
+            return ('No other' if excluding_poster else 'No') + ' members of {} are currently in this room. Use `{}:` to ping one.'.format(site_name, site_id)
 
     def ping_all(self, site_id, poster_id, message=None):
         '''Sends a ping to all mods from the chosen site.'''
@@ -285,7 +285,7 @@ class Dispatcher(object):
         if message:
             return '{}: {}'.format(mod_pings, message)
         else:
-            return 'Pinging {} moderators: {}'.format(len(site_mod_info), mod_pings)
+            return 'Pinging {} members: {}'.format(len(site_mod_info), mod_pings)
 
 def _listen_to_room(room, tl=None):
     try:
