@@ -15,14 +15,14 @@ logger = logging.getLogger('pingbot')
 
 HELP = '''"whois [group]" lists users of a group.
 "any [group]: [message]" pings a single member of the group, one who is in the room if possible.
-"[group]: [message]" pings all members of the group currently in the room, or if none are present, does nothing.
+"[group] here: [message]" pings all members of the group currently in the room, or if none are present, does nothing.
 "all [group]: [message]" pings all members of the group, period.
 "groups" gives a list of pingable sites (not including some aliases which are also recognized).
 Pings can optionally be followed by a colon and a message.'''
 
 WHOIS = re.compile(r'who(?:is|are) (\w+)$')
 ANYPING = re.compile(r'(?:any )?(\w+)(?:\s*:\s*(.+))?$')
-HEREPING = re.compile(r'(\w+)(?:\s*:\s*(.+))?$')
+HEREPING = re.compile(r'(\w+) here(?:\s*:\s*(.+))?$')
 ALLPING = re.compile(r'all (\w+)(?:\s*:\s*(.+))?$')
 
 class UnknownSiteException(Exception):
