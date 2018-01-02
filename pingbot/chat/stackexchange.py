@@ -11,7 +11,7 @@ from . import RoomObserver as BaseRoomObserver, RoomParticipant as BaseRoomParti
 logger = logging.getLogger('pingbot.chat.stackexchange')
 
 def format_message(message):
-    return ('[auto]\n{}' if '\n' in message else '[auto] {}').format(message)
+    return ('[ [pingbot](https://git.io/vbhDX) ]\n{}' if '\n' in message else '[ [pingbot](https://git.io/vbhDX) ] {}').format(message)
 
 class ChatExchangeSession(object):
     def __init__(self, email, password, host='stackexchange.com'):
