@@ -2,7 +2,10 @@
   "moderators": {
     "admins": [
       { "id": 121520, "name": "ArtOfCode" },
-      { "id": 73046, "name": "Undo" }
+      { "id": 73046, "name": "Undo" },
+      { "id": 62118, "name": "tripleee" },
+      { "id": 145827, "name": "angussidney" },
+      { "id": 66258, "name": "Andy" }
     ]
   }
 }
