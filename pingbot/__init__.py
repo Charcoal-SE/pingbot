@@ -102,10 +102,10 @@ class Dispatcher(object):
             poster_id = message.owner.id
             try:
                 content = content.strip()
-                if content == 'help me ping':
+                if content == '!!/ping-help':
                     reply(HELP)
                     return
-                elif content == 'sites':
+                elif content == '!!/groups':
                     reply(self.sites())
                     return
                 m = WHOIS.match(content)
